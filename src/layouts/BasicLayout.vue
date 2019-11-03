@@ -11,6 +11,7 @@
         collapsible
         v-model="collapsed"
         :trigger="null"
+        width="256px"
       >
         <div class="logo">Ant Design Vue Pro</div>
         <SiderMenu></SiderMenu>
@@ -21,7 +22,8 @@
             class="trigger"
             :type="collapsed ? 'menu-unfold' : 'menu-fold'"
             @click="collapsed = !collapsed"
-          ></a-icon>
+          >
+          </a-icon>
           <Header></Header>
         </a-layout-header>
         <a-layout-content style="margin: 0 16px">
