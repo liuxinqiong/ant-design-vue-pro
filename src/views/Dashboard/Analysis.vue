@@ -6,7 +6,7 @@
 
 <script>
 import Charts from "../../components/Charts";
-import axios from "axios";
+import request from "../../utils/request.js";
 export default {
   components: {
     Charts
@@ -21,31 +21,31 @@ export default {
   },
   methods: {
     getChartData() {
-      axios
-        .get("/api/dashboard/chart", {
-          params: {
-            ID: 12345
-          }
-        })
-        .then(response => {
-          this.chartOption = {
-            title: {
-              text: "123"
-            },
-            tooltip: {},
-            xAxis: {
-              data: ["1", "2", "3", "4", "5", "6"]
-            },
-            yAxis: {},
-            series: [
-              {
-                name: "111",
-                type: "bar",
-                data: response.data
-              }
-            ]
-          };
-        });
+      request({
+        url: "/api/dashboard/chart",
+        method: "get",
+        params: {
+          ID: 12345
+        }
+      }).then(response => {
+        this.chartOption = {
+          title: {
+            text: "123"
+          },
+          tooltip: {},
+          xAxis: {
+            data: ["1", "2", "3", "4", "5", "6"]
+          },
+          yAxis: {},
+          series: [
+            {
+              name: "111",
+              type: "bar",
+              data: response.data
+            }
+          ]
+        };
+      });
     }
   }
 };
