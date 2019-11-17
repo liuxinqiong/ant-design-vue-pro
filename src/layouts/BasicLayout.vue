@@ -2,7 +2,7 @@
   <div>
     <a-layout
       :class="[`nav-theme-${navTheme}`, `nav-layout-${navLayout}`]"
-      id="components-layout-demo-side"
+      class="components-layout-demo-side"
       style="min-height: 100vh"
     >
       <a-layout-sider
@@ -68,6 +68,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.components-layout-demo-side /deep/ .ant-menu-dark .ant-menu-item-selected {
+  color: #000;
+}
 .trigger {
   padding: 0 20px;
   line-height: 64px;
